@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router'; 
+import { RouterModule, Routes } from '@angular/router';
 import { Reporte1Component } from './pages/reporte1/reporte1.component';
-import { SidebarComponent} from '../shared/sidebar/sidebar.component'
+import { Reporte2Component } from './pages/reporte2/reporte2.component';
+import { Reporte3Component } from './pages/reporte3/reporte3.component';
+import { SidebarComponent } from '../shared/sidebar/sidebar.component'
 
 const routes: Routes = [
   {
@@ -9,9 +11,17 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       {
-				path: 'pagos',
-				component: Reporte1Component
-			}
+        path: 'pagos',
+        component: Reporte1Component
+      },
+      {
+        path: 'usuarios',
+        component: Reporte2Component
+      },
+      {
+        path: 'recetas',
+        component: Reporte3Component
+      }
     ]
   }
 ];
