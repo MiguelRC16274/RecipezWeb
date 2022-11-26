@@ -1,0 +1,38 @@
+.chart-container{
+    
+    height:25rem;
+    background-color: aquamarine;
+    border-radius: 10px;
+    border-color: black;
+    width: 25%;
+    }
+    
+    .chart-wrapper{
+        width: 750px;
+        height: 350px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+    }
+    
+    .general{
+        margin:auto;
+        padding: auto;
+        width:1200px;
+        height:600px;
+        background-color: red;
+        display: flex;
+        align-items: center;
+    }
+    
+    .title{
+        text-align: center;
+    }
+    
+    .derecha{
+         width:75%;
+         height:100%;
+         background-color: yellow;
+         
+    
+    }

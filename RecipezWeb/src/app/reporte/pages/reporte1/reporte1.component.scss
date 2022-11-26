@@ -1,14 +1,40 @@
 .chart-container{
-width: 35rem;
-height:20rem;
+
+height:25rem;
 background-color: aquamarine;
 border-radius: 10px;
+border-color: black;
+width: 70%;
 }
+
+.chart-wrapper{
+    width: 750px;
+    height: 350px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.general{
+    margin:auto;
+    padding: auto;
+    width:1200px;
+    height:600px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+}
+
 .title{
-    color:black;
     text-align: center;
 }
-.chart-wrapper{
-    width: 550px;
-    height: 250px;
+
+.derecha{
+     width:30%;
+     height:100%;
+     background-color: yellow;
+     
+
 }
+
+
