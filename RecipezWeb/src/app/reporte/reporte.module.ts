@@ -8,12 +8,14 @@ import { Reporte1Component } from './pages/reporte1/reporte1.component';
 import { Reporte2Component } from './pages/reporte2/reporte2.component';
 import { Reporte3Component } from './pages/reporte3/reporte3.component';
 
+import { NgChartsModule } from 'ng2-charts'
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    ReporteRoutingModule
+    ReporteRoutingModule,
+    NgChartsModule
   ],
   declarations: [
     Reporte1Component,
