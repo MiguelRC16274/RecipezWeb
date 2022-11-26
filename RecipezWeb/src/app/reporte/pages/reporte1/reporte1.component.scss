@@ -1,7 +1,7 @@
 .chart-container{
 
 height:25rem;
-background-color: aquamarine;
+background-color: white;
 border-radius: 10px;
 border-color: black;
 width: 70%;
@@ -20,19 +20,21 @@ width: 70%;
     padding: auto;
     width:1200px;
     height:600px;
-    background-color: red;
+    background-color: white;
     display: flex;
     align-items: center;
 }
 
 .title{
     text-align: center;
+    margin:10px;
+    font-weight: bold;
 }
 
 .derecha{
      width:30%;
      height:100%;
-     background-color: yellow;
+     background-color: white;
      
 
 }

@@ -1,7 +1,7 @@
 .chart-container{
     
     height:25rem;
-    background-color: aquamarine;
+    background-color: white;
     border-radius: 10px;
     border-color: black;
     width: 25%;
@@ -20,7 +20,7 @@
         padding: auto;
         width:1200px;
         height:600px;
-        background-color: red;
+        background-color: white;
         display: flex;
         align-items: center;
     }
@@ -32,7 +32,11 @@
     .derecha{
          width:75%;
          height:100%;
-         background-color: yellow;
+         background-color: white;
+         text-align: center;
          
-    
+    }
+
+    .tabla{
+        margin:20px; 
     }

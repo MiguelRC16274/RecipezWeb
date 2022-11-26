@@ -17,6 +17,9 @@ export class Reporte1Component implements OnInit {
     ]
   }
 
+  options={plugins: {
+    legend: { display: false }}}
+
 
 
   constructor() { }

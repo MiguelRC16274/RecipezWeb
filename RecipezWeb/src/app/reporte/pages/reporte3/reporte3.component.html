@@ -8,7 +8,39 @@
   </div>
 
   <div class="derecha">
-    <h1>Revision de usuarios reportados</h1>
+    
+    <h1 class="title-table">RECETAS REPORTADAS</h1>
+
+    <div class="tabla">
+      <nz-table #basicTable [nzData]="listOfData">
+        <thead>
+          <tr>
+            <th>Nombre de usuario</th>
+            <th>Nombre de receta</th>
+            <th>Cantidad de reportes</th>
+            <th>Imagen</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr *ngFor="let data of basicTable.data">
+            <td>{{ data.nameUser }}</td>
+            <td>{{ data.nameRecipe }}</td>
+            <td>{{ data.quantityReport }}</td>
+            <td>{{ data.image }}</td>
+            <td>{{ data.decription }}</td>
+            <td>
+              <a>Aceptar</a>
+              <nz-divider nzType="vertical"></nz-divider>
+              <a>Rechazar</a>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
 
   </div>
 </div>
