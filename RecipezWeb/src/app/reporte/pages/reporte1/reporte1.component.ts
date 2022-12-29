@@ -34,7 +34,7 @@ export class Reporte1Component implements OnInit {
     async leerDoctores() {
       const querySnapshot = await getDocs(collection(this.afs, 'users'));
       querySnapshot.forEach((doc) => {
-        console.log(doc);
+        console.log(doc.get("subscription"));
         
       });
       
