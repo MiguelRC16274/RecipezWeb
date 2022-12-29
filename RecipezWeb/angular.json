@@ -106,8 +106,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "RecipezWeb:build:production",
+            "firebaseProject": "recipez-d861e",
+            "firebaseHostingSite": "recipez-d861e"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "77df6d8a-1fda-44b6-a8a5-e0e4bcc75bc8"
   }
 }

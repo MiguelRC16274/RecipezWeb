@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "recipez-d861e": {
+      "hosting": {
+        "RecipezWeb": [
+          "recipez-d861e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "recipez-d861e"
+  }
+}

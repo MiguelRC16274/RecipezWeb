@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { collection, Firestore, getDocs } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-reporte1',
@@ -22,9 +23,20 @@ export class Reporte1Component implements OnInit {
 
 
 
-  constructor() { }
+    constructor(private afs: Firestore) {
+      this.leerDoctores();
+     }
 
-  ngOnInit(): void {
-  }
+     ngOnInit(): void {
+      this.leerDoctores();
+    }
 
+    async leerDoctores() {
+      const querySnapshot = await getDocs(collection(this.afs, 'users'));
+      querySnapshot.forEach((doc) => {
+        console.log(doc);
+        
+      });
+      
+    }
 }

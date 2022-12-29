@@ -16,6 +16,9 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 
 import { ReporteModule } from './reporte/reporte.module';
 import { SecurityModule } from './security/security.module';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 registerLocaleData(en);
 
@@ -33,7 +36,9 @@ registerLocaleData(en);
     NzLayoutModule,
     NzMenuModule,
     ReporteModule,
-    SecurityModule
+    SecurityModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
