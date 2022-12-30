@@ -14,6 +14,7 @@ interface ReportesReceta {
   userID: String;
   title: String;
   image: String;
+  quantityReport: number;
   reports: any[]; 
 }
 
@@ -119,10 +120,11 @@ export class Reporte3Component implements OnInit {
         recipeName: doc.get("title"),
         title: doc.get("title"),
         image: doc.get('photoURL'),
-        //reports: any[]; 
+        quantityReport: contador,
+        reports: asd2,
 
       };
-      this.reportRecipes
+      this.reportRecipes.push(asd);
       
 
     });
