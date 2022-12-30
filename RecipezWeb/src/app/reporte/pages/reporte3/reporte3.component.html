@@ -24,7 +24,7 @@
             <td>{{ data.userID }}</td>
             <td>{{ data.title }}</td>
             <td>{{ data.quantityReport }}</td>
-            <td> <a href='{{ data.image}}' target="_blank"> Ver imagen</a></td>
+            <td> <a href='{{ data.image}}' target="_blank"><span nz-icon nzType="file-image" nzTheme="outline" style="font-size: 30px; color: #08c;"></span></a></td>
             <td  (click)="showModal(data.reports)"style="align-items: center;"><span title><span nz-icon nzType="file-search" style="font-size: 30px; color: #08c;"></span></span></td>
             <td>
               <span nz-icon nzType="delete" nzTheme="outline" style="font-size: 30px; color: #08c;" (click)="deshabilitar(data.recetaID)"></span>

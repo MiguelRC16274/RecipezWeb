@@ -1,10 +1,46 @@
 <div class="general">
-  <div class="derecha">
-    <h1>INGRESOS ACUMULADOS</h1>
-  </div>
   <div class="chart-container">
-    <canvas id="UsuariosActivos">
-      {{graficoDonas}}
-    </canvas>
+    <div class="chart-wrapper">
+      <canvas id="UsuariosActivos">
+        {{graficoDonas}}
+      </canvas>
+    </div>
+    <nz-table #basicTable [nzData]="datos" [nzFrontPagination] = "false">
+      <thead>
+        <tr>
+          <th>Usuarios Premiun</th>
+          <th>Usuarios No Premiun</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{usuariosActivos}}</td>
+          <td>{{usuariosInactivos}}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <div class="derecha">
+    <h1>Usuarios</h1>
+    <div class="tabla">
+      <nz-table #basicTable [nzData]="reportUsers">
+        <thead>
+          <tr>
+            <th>ID Usuario</th>
+            <th>Nombre</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr *ngFor="let data of reportUsers">
+            <td>{{ data.userID }}</td>
+            <td>{{ data.nameUser }}</td>
+            <td>{{ data.email }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
   </div>
 </div>

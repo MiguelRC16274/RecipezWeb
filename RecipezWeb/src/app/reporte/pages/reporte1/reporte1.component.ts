@@ -4,6 +4,13 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import Chart from 'chart.js/auto';
 import { provideProtractorTestingSupport } from '@angular/platform-browser';
 
+interface Person {
+  userID: string;
+  nameUser: string;
+  email: string;
+  profileImage: string;
+}
+
 @Component({
   selector: 'app-reporte1',
   templateUrl: './reporte1.component.html',
@@ -13,8 +20,10 @@ export class Reporte1Component implements OnInit {
 
   usuariosActivos = 0;
   usuariosInactivos = 0;
+  datos = [{}]
 
   graficoDonas: any = [];
+  reportUsers: Person[] = [];
 
   constructor(private afs: Firestore, private modal: NzModalService) {
 
@@ -37,7 +46,7 @@ export class Reporte1Component implements OnInit {
         ]
       },
       options: {
-        responsive: true,
+        responsive: false,
         plugins: {
           legend: {
             position: 'top',
@@ -50,6 +59,7 @@ export class Reporte1Component implements OnInit {
       }
     });
     this.leerDoctores();
+    this.dataUsuarios();
   }
 
   async leerDoctores() {
@@ -64,14 +74,14 @@ export class Reporte1Component implements OnInit {
     const w = query(db, where("subscription", "==", false));
     const querySnapshotInactivos = await getCountFromServer(w);
     this.usuariosInactivos = querySnapshotInactivos.data().count;
-    
+
     setTimeout(() => {
       this.addData();
     }, 500);
   }
 
   removeData() {
-    console.log(this.graficoDonas.data?.datasets.data)
+    //console.log(this.graficoDonas.data?.datasets.data)
     if (this.graficoDonas.data?.datasets) {
       this.graficoDonas.data.datasets.forEach((dataset: any) => {
         dataset.data = new Array;
@@ -81,10 +91,27 @@ export class Reporte1Component implements OnInit {
   }
 
   addData() {
-    if(this.graficoDonas.data?.datasets){
+    if (this.graficoDonas.data?.datasets) {
       this.graficoDonas.data?.datasets[0].data.push(this.usuariosActivos, this.usuariosInactivos);
       this.graficoDonas.update();
     }
-    
+
+  }
+
+  async dataUsuarios() {
+    const db = collection(this.afs, 'users')
+    const q = query(db);
+    const querySnapshot2 = await getDocs(q);
+    querySnapshot2.forEach((doc) => {
+      let asd2: any = []
+      let asd = {
+        userID: doc.get("uid"),
+        nameUser: doc.get("name"),
+        email: doc.get("email"),
+        profileImage: doc.get("photoURL")
+      };
+      this.reportUsers.push(asd);
+    })
+    console.log(this.reportUsers)
   }
 }
