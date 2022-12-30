@@ -24,7 +24,7 @@ export class Reporte1Component implements OnInit {
 
 
     constructor(private afs: Firestore) {
-      this.leerDoctores();
+      
      }
 
      ngOnInit(): void {
@@ -33,10 +33,16 @@ export class Reporte1Component implements OnInit {
 
     async leerDoctores() {
       const querySnapshot = await getDocs(collection(this.afs, 'users'));
+
+      console.log(querySnapshot)
+
+      /*
       querySnapshot.forEach((doc) => {
         console.log(doc.get("subscription"));
         
       });
+
+      */
       
     }
 }
