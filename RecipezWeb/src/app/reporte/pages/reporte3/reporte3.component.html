@@ -15,6 +15,7 @@
       <nz-table #basicTable [nzData]="reportRecipes">
         <thead>
           <tr>
+            <th>ID de receta</th>
             <th>ID de usuario</th>
             <th>Nombre de receta</th>
             <th>Cantidad de reportes</th>
@@ -27,11 +28,12 @@
 
         <tbody>
           <tr *ngFor="let data of reportRecipes">
+            <td>{{ data.recetaID }}</td>
             <td>{{ data.userID }}</td>
             <td>{{ data.title }}</td>
             <td>{{ data.quantityReport }}</td>
             <td> <a href='{{ data.image}}' target="_blank"> Ver imagen</a></td>
-            <td> <button onclick="location.href=''" > Ver reporte</button></td>
+            <td (click)="showModal(data.reports)" style="align-items: center;"><span title><span nz-icon nzType="file-search" style="font-size: 30px; color: #08c;"></span></span></td>
             <td>
               <a>Deshabilitar</a>
               <nz-divider nzType="vertical"></nz-divider>
@@ -44,3 +46,35 @@
 
   </div>
 </div>
+
+<!--<nz-modal [(nzVisible)]="isVisible" nzTitle="Reportes Registrasdos" (nzOnCancel)="handleCancel()"  nzCancelText="Cerrar" nzOkDisabled="true">
+  <ng-container *nzModalContent>
+    
+  </ng-container>
+</nz-modal>-->
+
+<nz-modal
+      [(nzVisible)]="isVisible"
+      [nzTitle]="modalTitle"
+      [nzContent]="modalContent"
+      [nzFooter]="modalFooter"
+      (nzOnCancel)="handleCancel()"
+    >
+      <ng-template #modalTitle>Reportes Registrasdos</ng-template>
+
+      <ng-template #modalContent>
+        <nz-table #basicTable [nzData]="infoReportes">
+          <thead>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of infoReportes">
+              <td>{{data}}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </ng-template>
+
+      <ng-template #modalFooter>
+        <button nz-button nzType="default" (click)="handleCancel()">Cerrar</button>
+      </ng-template>
+    </nz-modal>

@@ -4,6 +4,7 @@ import { collection, Firestore, getDocs } from '@angular/fire/firestore';
 interface ReportesReceta {
   
   userID: String;
+  recetaID: String;
   title: String;
   image: String;
   quantityReport: number;
@@ -17,7 +18,10 @@ interface ReportesReceta {
 })
 export class Reporte3Component implements OnInit {
 
+  isVisible = false;
+  isConfirmLoading = false;
   reportRecipes: ReportesReceta[] = [];
+  infoReportes : any[] = [];
 
   doughnutChartData = {
     labels: ['activos', 'Reportados', 'Desactivados'],
@@ -47,7 +51,7 @@ export class Reporte3Component implements OnInit {
     const querySnapshot = await getDocs(collection(this.afs, 'recipes'));
     querySnapshot.forEach((doc) => {
 
-      //console.log(doc.get("reports"));
+      //console.log(doc['id']);
       let contador = 0;
       let asd2: any = []
       
@@ -57,20 +61,39 @@ export class Reporte3Component implements OnInit {
         console.log(contador);
       })
 
-      let asd = {
+      if (contador != 0){
+        let asd = {
 
-        userID: doc.get("userId"),
-        title: doc.get("title"),
-        image: doc.get('photoURL'),
-        quantityReport: contador,
-        reports: asd2,
+          userID: doc.get("userId"),
+          recetaID: doc['id'],
+          title: doc.get("title"),
+          image: doc.get('photoURL'),
+          quantityReport: contador,
+          reports: asd2,
+  
+        };
+        this.reportRecipes.push(asd);
+      }
 
-      };
-
-      this.reportRecipes.push(asd);
-      
     });
+    console.log(this.reportRecipes);
     
+  }
+
+  showModal(data : any): void {
+    this.infoReportes = data;
+    console.log(data);
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    console.log('Button ok clicked!');
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
   }
   
 }
