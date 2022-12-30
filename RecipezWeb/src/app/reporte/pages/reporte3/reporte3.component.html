@@ -12,30 +12,30 @@
     <h1 class="title-table">RECETAS REPORTADAS</h1>
 
     <div class="tabla">
-      <nz-table #basicTable [nzData]="listOfData">
+      <nz-table #basicTable [nzData]="reportRecipes">
         <thead>
           <tr>
-            <th>Nombre de usuario</th>
+            <th>ID de usuario</th>
             <th>Nombre de receta</th>
             <th>Cantidad de reportes</th>
             <th>Imagen</th>
-            <th>Descripcion</th>
+            <th>Reporte</th>
             <th>Acciones</th>
           </tr>
         </thead>
 
 
         <tbody>
-          <tr *ngFor="let data of basicTable.data">
-            <td>{{ data.nameUser }}</td>
-            <td>{{ data.nameRecipe }}</td>
+          <tr *ngFor="let data of reportRecipes">
+            <td>{{ data.userID }}</td>
+            <td>{{ data.title }}</td>
             <td>{{ data.quantityReport }}</td>
-            <td>{{ data.image }}</td>
-            <td>{{ data.decription }}</td>
+            <td> <a href='{{ data.image}}' target="_blank"> Ver imagen</a></td>
+            <td> <button onclick="location.href=''" > Ver reporte</button></td>
             <td>
-              <a>Aceptar</a>
+              <a>Deshabilitar</a>
               <nz-divider nzType="vertical"></nz-divider>
-              <a>Rechazar</a>
+              <a>Ignorar</a>
             </td>
           </tr>
         </tbody>

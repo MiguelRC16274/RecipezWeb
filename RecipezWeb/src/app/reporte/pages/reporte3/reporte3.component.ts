@@ -1,16 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { collection, Firestore, getDocs } from '@angular/fire/firestore';
 
-interface Recipe {
-  key: string;
-  nameUser: string;
-  nameRecipe: string;
-  image: string;
-  decription: string;
-  quantityReport: string;
-}
-
 interface ReportesReceta {
+  
   userID: String;
   title: String;
   image: String;
@@ -27,53 +19,6 @@ export class Reporte3Component implements OnInit {
 
   reportRecipes: ReportesReceta[] = [];
 
-  listOfData: Recipe[] = [
-    {
-      key: '1',
-      nameUser: 'elBicho_7',
-      nameRecipe: 'prueba',
-      image: '',
-      decription: 'prueba',
-      quantityReport: 'prueba',
-    },
-    {
-      key: '2',
-      nameUser: 'elBicho_7',
-      nameRecipe: 'prueba',
-      image: '',
-      decription: 'prueba',
-      quantityReport: 'prueba',
-    },{
-      key: '3',
-      nameUser: 'elBicho_7',
-      nameRecipe: 'prueba',
-      image: '',
-      decription: 'prueba',
-      quantityReport: 'prueba',
-    },{
-      key: '4',
-      nameUser: 'elBicho_7',
-      nameRecipe: 'prueba',
-      image: '',
-      decription: 'prueba',
-      quantityReport: 'prueba',
-    },{
-      key: '5',
-      nameUser: 'elBicho_7',
-      nameRecipe: 'prueba',
-      image: '',
-      decription: 'prueba',
-      quantityReport: 'prueba',
-    },{
-      key: '6',
-      nameUser: 'elBicho_7',
-      nameRecipe: 'prueba',
-      image: '',
-      decription: 'prueba',
-      quantityReport: 'prueba',
-    },
-  ];
-
   doughnutChartData = {
     labels: ['activos', 'Reportados', 'Desactivados'],
     datasets: [
@@ -87,6 +32,7 @@ export class Reporte3Component implements OnInit {
       },
     ],
   };
+
   doughnutChartOption = {
     responsive: false,
   };
@@ -109,25 +55,22 @@ export class Reporte3Component implements OnInit {
         contador++;
         asd2.push(l['text']);
         console.log(contador);
-      }
-       
-       )
-
+      })
 
       let asd = {
 
         userID: doc.get("userId"),
-        recipeName: doc.get("title"),
         title: doc.get("title"),
         image: doc.get('photoURL'),
         quantityReport: contador,
         reports: asd2,
 
       };
+
       this.reportRecipes.push(asd);
       
-
     });
     
   }
+  
 }
