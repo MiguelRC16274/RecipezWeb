@@ -1,28 +1,10 @@
-
-  <div class="general">
-    <div class="chart-container">
-      <div class="title">REPORTE ANUAL</div>
-      <div class="chart-wrapper">
-        <canvas
-          baseChart
-          type="line"
-          [data]="lineChartData"
-          [options]="options"
-        >
-        </canvas>
-      </div>
-    </div>
-    
-    <div class="derecha">
-      <h1>INGRESOS ACUMULADOS</h1>
-      </div>
+<div class="general">
+  <div class="derecha">
+    <h1>INGRESOS ACUMULADOS</h1>
   </div>
-  
-
-
-
-
-
-
-
-
+  <div class="chart-container">
+    <canvas id="UsuariosActivos">
+      {{graficoDonas}}
+    </canvas>
+  </div>
+</div>

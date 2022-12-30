@@ -1,12 +1,4 @@
 <div class="general">
-  <div class="chart-container">
-    <div class="title">Grafico Estadistico</div>
-    <div class="chart-wrapper">
-      <canvas baseChart type="doughnut" [data]="doughnutChartData" [options]="doughnutChartOption">
-      </canvas>
-    </div>
-  </div>
-
   <div class="derecha">
     
     <h1 class="title-table">RECETAS REPORTADAS</h1>
@@ -33,11 +25,10 @@
             <td>{{ data.title }}</td>
             <td>{{ data.quantityReport }}</td>
             <td> <a href='{{ data.image}}' target="_blank"> Ver imagen</a></td>
-            <td (click)="showModal(data.reports)" style="align-items: center;"><span title><span nz-icon nzType="file-search" style="font-size: 30px; color: #08c;"></span></span></td>
+            <td  (click)="showModal(data.reports)"style="align-items: center;"><span title><span nz-icon nzType="file-search" style="font-size: 30px; color: #08c;"></span></span></td>
             <td>
-              <a>Deshabilitar</a>
-              <nz-divider nzType="vertical"></nz-divider>
-              <a>Ignorar</a>
+              <span nz-icon nzType="delete" nzTheme="outline" style="font-size: 30px; color: #08c;" (click)="deshabilitar(data.recetaID)"></span>
+              <span nz-icon nzType="issues-close" nzTheme="outline" style="font-size: 30px; color: #08c;" (click)="ignorar(data.recetaID)"></span>
             </td>
           </tr>
         </tbody>
@@ -77,4 +68,4 @@
       <ng-template #modalFooter>
         <button nz-button nzType="default" (click)="handleCancel()">Cerrar</button>
       </ng-template>
-    </nz-modal>
+</nz-modal>
